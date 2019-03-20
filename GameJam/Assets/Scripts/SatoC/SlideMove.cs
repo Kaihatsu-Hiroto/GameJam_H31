@@ -28,9 +28,10 @@ public class SlideMove : MonoBehaviour
         //左方向に移動
         transform.position -= new Vector3(dir *speed * Time.deltaTime , 0 , 0);
 
-        //一定時間後に削除
-        Destroy(this.gameObject , 15.0f);
 
+        if (!GetComponent<Renderer>().isVisible) {
+            Destroy(this.gameObject);
+        }
     }
 
     float SpeedMag()
