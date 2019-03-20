@@ -9,7 +9,7 @@ public class SceneMove : MonoBehaviour {
     string SceneName;
 
     //効果音
-    //private AudioSource se01;
+    private AudioSource se01;
     //private AudioSource se02;
 
     // Use this for initialization
@@ -25,7 +25,7 @@ public class SceneMove : MonoBehaviour {
     void Init() {
         AudioSource[] audioSources = GetComponents<AudioSource>();
 
-        //se01 = audioSources[0];
+        se01 = audioSources[0];
         //se02 = audioSources[1];
     }
 
@@ -34,16 +34,16 @@ public class SceneMove : MonoBehaviour {
         if (Input.GetMouseButtonUp(0)) {
             switch (SceneName) {
                 case "Title":
-                //se01.PlayOneShot(se01.clip);
+                se01.PlayOneShot(se01.clip);
                 FadeManager.Instance.LoadScene("Description" , 1.0f);
                 break;
                 case "Description":
-                //se02.PlayOneShot(se02.clip);
-                FadeManager.Instance.LoadScene("Main" , 1.0f);
+                    se01.PlayOneShot(se01.clip);
+                    FadeManager.Instance.LoadScene("Main" , 1.0f);
                 break;
                 case "Result":
-                //se01.PlayOneShot(se01.clip);
-                FadeManager.Instance.LoadScene("Title" , 1.0f);
+                    se01.PlayOneShot(se01.clip);
+                    FadeManager.Instance.LoadScene("Title" , 1.0f);
                 break;
                 default:
                 break;

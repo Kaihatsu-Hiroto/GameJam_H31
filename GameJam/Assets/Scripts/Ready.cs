@@ -15,8 +15,18 @@ public class Ready : MonoBehaviour {
     public bool trg = false;
     private bool end = false;
 
+    private AudioSource se01;
+    private AudioSource se02;
+    private AudioSource bgm01;
+
     // Start is called before the first frame update
     void Start() {
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+
+        se01 = audioSources[0];
+        bgm01 = audioSources[1];
+        se02 = audioSources[2];
+
         trg = false;
         end = false;
         ready.text = "";
@@ -42,6 +52,8 @@ public class Ready : MonoBehaviour {
         yield return new WaitForSeconds(2.0f);
 
         ready.text = "GO!!";
+        se01.PlayOneShot(se01.clip);
+        bgm01.Play();
         yield return new WaitForSeconds(1.0f);
 
         ready.text = "";
@@ -53,6 +65,9 @@ public class Ready : MonoBehaviour {
         ready.gameObject.SetActive(true);
 
         ready.text = "FINISH";
+        bgm01.Stop();
+        se02.PlayOneShot(se02.clip);
+
         yield return new WaitForSeconds(2.0f);
 
         end = true;
