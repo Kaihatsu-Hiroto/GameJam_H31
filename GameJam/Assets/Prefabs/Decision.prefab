@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2701654675973770953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2701654675973770951}
+  - component: {fileID: 2701654675973770950}
+  - component: {fileID: 2701654675401935552}
+  m_Layer: 0
+  m_Name: Decision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2701654675973770951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2701654675973770953}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2701654675973770950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2701654675973770953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5909d50630c91b14abbb8a8515187ad0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  good: 0
+  bad: 0
+  combo: 0
+  cnt: 0
+  magni: 1
+  grade: 0
+  score: 0
+--- !u!114 &2701654675401935552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2701654675973770953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d77fac0b683fd3469cdc464ee720424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragon:
+  - {fileID: 7196118841811688665, guid: fe9427342c4429f44962b71d680b77ff, type: 3}
+  - {fileID: 5424105576926165859, guid: f17105d852f6234448fffa5924b4e52b, type: 3}
+  - {fileID: 1436612699356985261, guid: 70beb96d9079bac4aa0080c1b0feaba2, type: 3}
+  - {fileID: 1003560662399465145, guid: ca80884a9b1707645a84fa3035e1eba2, type: 3}
+  - {fileID: 8950487129716857895, guid: e7be4e6b489cf7844abb21b6f5ffab9c, type: 3}
+  frameCount: 0
+  createCount: 0
