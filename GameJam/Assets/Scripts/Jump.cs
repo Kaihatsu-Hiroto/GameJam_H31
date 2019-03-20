@@ -9,6 +9,11 @@ public class Jump : MonoBehaviour
 
     private Rigidbody2D rigidbody2d;
 
+    [SerializeField]
+    private AudioSource se01;
+
+    private AudioSource se02;
+
     public Sprite sprDefo;
     public Sprite sprRE;
     public Sprite sprBE;
@@ -47,6 +52,19 @@ public class Jump : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.AddComponent<AudioSource>();
+        this.gameObject.AddComponent<AudioSource>();
+
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+
+        se01 = audioSources[0];
+        se02 = audioSources[1];
+
+        se01.clip = Resources.Load("Audio/SE_Dragon") as AudioClip;
+        se02.clip = Resources.Load("Audio/SE_out") as AudioClip;
+
+
+
         rigidbody2d = GetComponent<Rigidbody2D>();
         sprRen = GetComponent<SpriteRenderer>();
 
@@ -273,6 +291,9 @@ public class Jump : MonoBehaviour
     /// 飛んでく動き
     /// </summary>
     void Fly() {
+        if (!se01.isPlaying){
+            se01.PlayOneShot(se01.clip);
+        }
         rigidbody2d.velocity = new Vector2(x , y);
 
         Dead();
@@ -281,6 +302,11 @@ public class Jump : MonoBehaviour
     /// 落下する動き
     /// </summary>
     void Fall() {
+
+        if (!se02.isPlaying)
+        {
+            se02.PlayOneShot(se02.clip);
+        }
 
         rigidbody2d.gravityScale = 3.0f;     
         
