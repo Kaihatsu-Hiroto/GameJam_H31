@@ -66,7 +66,10 @@ public class Ready : MonoBehaviour {
 
         ready.text = "FINISH";
         bgm01.Stop();
-        se02.PlayOneShot(se02.clip);
+
+        if (!se02.isPlaying) {
+            se02.PlayOneShot(se02.clip);
+        }
 
         yield return new WaitForSeconds(2.0f);
 
