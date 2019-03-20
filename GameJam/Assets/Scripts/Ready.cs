@@ -15,13 +15,13 @@ public class Ready : MonoBehaviour {
     public bool trg = false;
     private bool end = false;
 
-<<<<<<< HEAD
+
     private Decision decison;
-=======
+
     private AudioSource se01;
     private AudioSource se02;
     private AudioSource bgm01;
->>>>>>> Kaihatsu
+
 
     // Start is called before the first frame update
     void Start() {
