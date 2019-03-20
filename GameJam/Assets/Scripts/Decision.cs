@@ -1,9 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Decision : MonoBehaviour
 {
+
+    #region Singleton
+
+    private static Decision instance;
+
+    public static Decision Instance {
+        get {
+            if (instance == null) {
+                instance = (Decision)FindObjectOfType(typeof(Decision));
+
+                if (instance == null) {
+                    
+                }
+            }
+
+            return instance;
+        }
+    }
+
+    #endregion Singleton
+
+    string SceneName;
+
     /// <summary>
     /// 成功判定
     /// </summary>
@@ -30,25 +54,56 @@ public class Decision : MonoBehaviour
     /// </summary>
     public int grade = 0;
 
-    public float score = 0;
+    public static float score = 0;
 
 
     // Start is called before the first frame update
+
+
+    void Awake() {
+        if (this != Instance) {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     void Start()
     {
-        good = false;
-        bad = false;
-
-        score = 0;
+        Init();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         God();
     }
 
+    public void Init() {
+
+        score = 0;
+        combo = 0;
+        cnt = 0;
+        magni = 1.0f;
+
+        good = false;
+        bad = false;
+    }
+
     void God() {
+
+        SceneName = SceneManager.GetActiveScene().name;
+        if (SceneName == "Title") {
+            score = 0;
+            combo = 0;
+            cnt = 0;
+            magni = 1.0f;
+
+            good = false;
+            bad = false;
+        }
 
         //龍に目を付けるのに成功したとき
         if (good && bad == false) {
@@ -91,5 +146,9 @@ public class Decision : MonoBehaviour
             bad = false;
         }
 
+    }
+
+    public static float getScore() {
+        return score;
     }
 }

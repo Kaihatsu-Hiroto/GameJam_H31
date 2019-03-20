@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public Text scoreText;
-    private int score;
+    public static int score;
+
+    Decision m_decision;
 
     void Start()
     {
@@ -15,6 +17,8 @@ public class Score : MonoBehaviour
     
     void Update()
     {
-        scoreText.text = FindObjectOfType<Decision>().score.ToString();
+        scoreText.text = Decision.score.ToString();
     }
+
+
 }

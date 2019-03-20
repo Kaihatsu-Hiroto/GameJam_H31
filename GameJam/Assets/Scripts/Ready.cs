@@ -15,6 +15,8 @@ public class Ready : MonoBehaviour {
     public bool trg = false;
     private bool end = false;
 
+    private Decision decison;
+
     // Start is called before the first frame update
     void Start() {
         trg = false;
