@@ -10,6 +10,7 @@ public class DragonCreate : MonoBehaviour
     public float createCount;    //生成された竜の数
     public int comboCount;       //コンボ数(外部取得)
     public float comboMag;       //コンボ倍率
+    public bool flg;
 
 
 
@@ -31,10 +32,12 @@ public class DragonCreate : MonoBehaviour
         comboCount = FindObjectOfType<Decision>().cnt;
         frameCount++;
 
+        if(frameCount>250)flg = FindObjectOfType<SlideMove>().deathflg;
+
         createSpeed = SpeedMag();
 
         //一定時間ごとに竜を生成
-        if (frameCount % createSpeed == 0)
+        if (frameCount % createSpeed == 0  || frameCount>250 && flg==true)
         {
             Instantiate(dragon[RandCreate()], new Vector3(12.0f, 0.0f, 0.0f), Quaternion.identity);
             frameCount = 0;

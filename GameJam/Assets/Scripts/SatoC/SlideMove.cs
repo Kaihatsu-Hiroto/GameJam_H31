@@ -8,6 +8,7 @@ public class SlideMove : MonoBehaviour
     public float speed;       //移動スピード
     public int comboCount;    //コンボ数(外部取得)
     public float comboMag;  //コンボ時のスピード倍率
+    public bool deathflg;
 
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class SlideMove : MonoBehaviour
 
 
         if (!GetComponent<Renderer>().isVisible) {
+            deathflg = true;
             Destroy(this.gameObject);
         }
     }
